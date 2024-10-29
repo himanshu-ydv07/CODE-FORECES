@@ -1,0 +1,32 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+vector<int> generateLikedNumbers(int limit) {
+    vector<int> likedNumbers;
+    for (int i = 1; likedNumbers.size() < limit; ++i) {
+        if (i % 3 != 0 && i % 10 != 3) {
+            likedNumbers.push_back(i);
+        }
+    }
+    return likedNumbers;
+}
+
+int main() {
+    int t;
+    cin >> t;
+    vector<int> queries(t);
+    int max_k = 0;
+
+    
+    for (int i = 0; i < t; ++i) {
+        cin >> queries[i];
+        max_k = max(max_k, queries[i]);
+    }
+    vector<int> likedNumbers = generateLikedNumbers(max_k);
+    for (int k : queries) {
+        cout << likedNumbers[k - 1] << endl;
+    }
+
+    return 0;
+}

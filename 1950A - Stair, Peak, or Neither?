@@ -1,0 +1,30 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;  // Number of test cases
+    vector<string> results;
+
+    for (int i = 0; i < t; ++i) {
+        int a, b, c;
+        cin >> a >> b >> c;
+
+        // Check the conditions
+        if (a < b && b < c) {
+            results.push_back("STAIR");
+        } else if (a < b && b > c) {
+            results.push_back("PEAK");
+        } else {
+            results.push_back("NONE");
+        }
+    }
+
+    // Output all results for each test case
+    for (const string& result : results) {
+        cout << result << endl;
+    }
+
+    return 0;
+}
